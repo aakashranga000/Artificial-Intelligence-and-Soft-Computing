@@ -8,19 +8,15 @@ dir={'left':(0,-1),'right':(0,1),'up':(-1,0),'down':(1,0)}
 result=[]
 
 #check is tile safe or not
-def is_safe(world,i,j):
+def is_safe(i,j):
     if (i,j) in pits:
         return False
     if (i,j) in wumpus:
         return False
-    if ('pit' in world[i][j]):
-        return False
-    if ('wumpus' in world[i][j]):
-        return False
     return True
 
 #when agent smells breeze or stench it checks adjacent blocks for wumpus or pits
-def checkADJ(world,i,j):
+def checkADJ(i,j):
     for key in dir.keys():
         x=i+dir[key][0]
         y=j+dir[key][1]
